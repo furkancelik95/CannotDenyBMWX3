@@ -1,0 +1,210 @@
+:root {
+  --bmw-blue: #1c69d4;
+  --bmw-blue-deep: #0d4ea8;
+  --ink: #f6f7fb;
+  --muted: rgba(246, 247, 251, 0.72);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Manrope, system-ui, sans-serif;
+  color: var(--ink);
+  overflow: hidden;
+  background: #05070b;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background: url("../assets/bmw-x3-bg.jpg") center 42% / cover no-repeat;
+  transform: scale(1.04);
+  z-index: 0;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 11, 0.22) 0%, rgba(5, 7, 11, 0.46) 48%, rgba(5, 7, 11, 0.72) 100%),
+    radial-gradient(ellipse at center, rgba(5, 7, 11, 0.08) 0%, rgba(5, 7, 11, 0.5) 100%);
+}
+
+.screen {
+  position: relative;
+  z-index: 2;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+}
+
+.eyebrow {
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+h1,
+h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+  max-width: 16ch;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+h1 {
+  font-size: clamp(2.1rem, 6vw, 4.4rem);
+  margin-bottom: 36px;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  margin-bottom: 12px;
+  max-width: 18ch;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 64px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  min-width: 132px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.btn-yes {
+  color: white;
+  background: linear-gradient(180deg, #3b86ea 0%, var(--bmw-blue) 55%, var(--bmw-blue-deep) 100%);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.btn-yes:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+
+.btn-yes:active {
+  transform: scale(0.98);
+}
+
+.btn-no {
+  color: white;
+  background: rgba(12, 16, 24, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  z-index: 40;
+}
+
+.btn-no.is-fleeing {
+  position: fixed;
+  margin: 0;
+  transition: left 0.12s ease, top 0.12s ease;
+}
+
+.address {
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.nav-card {
+  width: min(560px, 100%);
+  display: grid;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: rgba(8, 10, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateY(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-card:hover {
+  transform: translateY(-3px);
+}
+
+.nav-photo,
+.nav-map {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.nav-photo {
+  height: 210px;
+}
+
+.nav-map {
+  height: 180px;
+  filter: saturate(0.9) contrast(1.05);
+}
+
+.nav-cta {
+  display: block;
+  padding: 16px 18px 18px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  background: linear-gradient(180deg, #3b86ea 0%, var(--bmw-blue) 100%);
+}
+
+.yes-screen[hidden],
+.screen[hidden] {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .nav-photo {
+    height: 168px;
+  }
+
+  .nav-map {
+    height: 150px;
+  }
+
+  .btn {
+    min-width: 118px;
+    padding: 13px 22px;
+  }
+}
