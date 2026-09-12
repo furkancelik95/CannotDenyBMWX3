@@ -28,7 +28,7 @@ body {
 .bg {
   position: fixed;
   inset: 0;
-  background: url("../assets/bmw-x3-bg.jpg") center 42% / cover no-repeat;
+  background: url("../assets/bmw-x3-bg.jpg") center 58% / cover no-repeat;
   transform: scale(1.04);
   z-index: 0;
 }
@@ -38,8 +38,8 @@ body {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(5, 7, 11, 0.22) 0%, rgba(5, 7, 11, 0.46) 48%, rgba(5, 7, 11, 0.72) 100%),
-    radial-gradient(ellipse at center, rgba(5, 7, 11, 0.08) 0%, rgba(5, 7, 11, 0.5) 100%);
+    linear-gradient(180deg, rgba(5, 7, 11, 0.18) 0%, rgba(5, 7, 11, 0.28) 42%, rgba(5, 7, 11, 0.58) 100%),
+    radial-gradient(ellipse at center, rgba(5, 7, 11, 0.04) 0%, rgba(5, 7, 11, 0.28) 100%);
 }
 
 .screen {
